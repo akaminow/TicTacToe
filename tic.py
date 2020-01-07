@@ -97,7 +97,7 @@ class Tic:
 		with open(self.fileCurrent, 'r') as rf:
 			reader = csv.reader(rf, delimiter = ',')
 			for row in reader:
-				if len(row > 0):
+				if len(row) > 0:
 					person.append(row[0])
 		return person
 	def computerArr(self):
@@ -105,7 +105,7 @@ class Tic:
 		with open(self.fileCurrent, 'r') as rf:
 			reader = csv.reader(rf, delimiter = ',')
 			for row in reader:
-				if len(row) > 1
+				if len(row) > 1:
 					computer.append(row[1])
 		return computer
 	def showBoard(self):
