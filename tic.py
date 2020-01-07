@@ -97,14 +97,16 @@ class Tic:
 		with open(self.fileCurrent, 'r') as rf:
 			reader = csv.reader(rf, delimiter = ',')
 			for row in reader:
-				person.append(row[0])
+				if len(row > 0):
+					person.append(row[0])
 		return person
 	def computerArr(self):
 		computer = []
 		with open(self.fileCurrent, 'r') as rf:
 			reader = csv.reader(rf, delimiter = ',')
 			for row in reader:
-				computer.append(row[1])
+				if len(row) > 1
+					computer.append(row[1])
 		return computer
 	def showBoard(self):
 		person = self.personArr()
@@ -229,8 +231,8 @@ class Tic:
 					writer.writerow([row[0], row[1]])
 	def play(self):
 		self.showEmptyBoard()	
-		f = open(self.fileCurrent, 'w+')
-		f.close()
+		with open(self.fileCurrent, 'w') as writing:
+			csv.writer(writing).writerow(['0', '0'])
 		self.addToCSV()
 		if self.personHasWon() and self.shouldAdd():
 			self.addInLoss()
