@@ -229,8 +229,8 @@ class Tic:
 					writer.writerow([row[0], row[1]])
 	def play(self):
 		self.showEmptyBoard()	
-		with open(self.fileCurrent, 'w') as rewrite:
-			csv.writer(rewrite).writerow(['0','0'])	
+		f = open(self.fileCurrent, 'w+')
+		f.close()
 		self.addToCSV()
 		if self.personHasWon() and self.shouldAdd():
 			self.addInLoss()
