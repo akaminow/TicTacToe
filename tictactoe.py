@@ -3,6 +3,7 @@ import csv
 import os
 import tkinter as tk
 import time
+from tkinter import messagebox
 class Tic:
     def __init__(self):
             self.list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -229,6 +230,7 @@ class TicPlay(Tic):
         with open(self.fileCurrent, 'w') as writing:
             csv.writer(writing).writerow(['0', '0'])
         self.tk = tk.Tk()
+        self.tk.title("Play")
         self.frame = tk.Frame(self.tk)
         self.frame.pack()
         self.button1 = tk.Button(self.frame, text=" ", font='Times 20 bold', bg='gray', fg='white', height=4, width=8, command=lambda: self.play(self.button1, 1))
@@ -292,13 +294,13 @@ class TicPlay(Tic):
             self.addInTie()
         if self.personHasWon():
         	self.tk.update_idletasks()
-        	time.sleep(2)
         	self.tk.destroy()
-        if self.computerHasWon():
+        	messagebox.showinfo("Win", "You win!")
+        elif self.computerHasWon():
         	self.tk.update_idletasks()
-        	time.sleep(2)
         	self.tk.destroy()
-        if self.list == []:
+        	messagebox.showinfo("Lose", "You lose.")
+        elif self.list == []:
         	self.tk.update_idletasks()
-        	time.sleep(2)
         	self.tk.destroy()
+        	messagebox.showinfo("tie", "It's a tie")

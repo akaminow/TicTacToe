@@ -3,12 +3,8 @@ import tkinter.font as tkFont
 import ticTrain
 import ticPlay
 import delete
-    
-
-# def write_slogan():
-#     print("Tkinter is easy to use!")
-
 root = tk.Tk()
+root.title("Menu")
 frame = tk.Frame(root)
 frame.pack()
 buttonQuit = tk.Button(frame, 

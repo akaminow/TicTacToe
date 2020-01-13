@@ -6,6 +6,7 @@ from tkinter import ttk
 class Train(tk.Tk):
 	def __init__(self):
 		tk.Tk.__init__(self)
+		self.title("Trainer")
 		self.frame = tk.Frame(self)
 		self.frame.pack()
 		self.progress = ttk.Progressbar(self.frame, orient="horizontal", length = 500)
@@ -14,14 +15,19 @@ class Train(tk.Tk):
 		self.entry.insert(tk.END, "# of times")
 		self.entry.bind('<ButtonRelease>', self.on_click)
 		self.buttonTrain = tk.Button(self.frame, width = 6, bg = "green", text="Train", font = ('Helvetica', 48, 'bold'), command=self.on_button)
-		self.buttonQuit = tk.Button(self.frame, width = 6, bg = "red", text="Close", font = ('Helvetica', 48, 'bold'), command=self.destroy)
+		self.buttonClose = tk.Button(self.frame, width = 6, bg = "red", text="Close", font = ('Helvetica', 48, 'bold'), command=self.destroy)
 		self.entry.config(width = 10)
 		self.entry.pack()
 		self.buttonTrain.pack(side = tk.RIGHT)
-		self.buttonQuit.pack(side = tk.LEFT)
+		self.buttonClose.pack(side = tk.LEFT)
 	def on_button(self):
 		n = int(self.entry.get())
+		self.entry.destroy()
+		self.buttonTrain.destroy()
+		self.buttonClose.destroy()
+		self.update_idletasks()
 		for num in range(1, n+1):
+			self.button = tk.Button(self.frame, command=quit, text="HEllo")
 			trainer = tictactoe.TicTrain()
 			trainer.play()
 			self.progress["value"] = int(num/n*100)
