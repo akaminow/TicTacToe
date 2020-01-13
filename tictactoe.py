@@ -291,8 +291,14 @@ class TicPlay(Tic):
         elif self.shouldAdd():
             self.addInTie()
         if self.personHasWon():
+        	self.tk.update_idletasks()
+        	time.sleep(2)
         	self.tk.destroy()
         if self.computerHasWon():
+        	self.tk.update_idletasks()
+        	time.sleep(2)
         	self.tk.destroy()
         if self.list == []:
+        	self.tk.update_idletasks()
+        	time.sleep(2)
         	self.tk.destroy()
