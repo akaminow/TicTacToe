@@ -178,21 +178,24 @@ class Tic:
             with open (self.fileTie, 'a') as append:
                 writer = csv.writer(append)
                 for row in reader:
-                    writer.writerow([row[0], row[1]])
+                	if len(row) > 1:
+                		writer.writerow([row[0], row[1]])
     def addInWin(self):
         with open(self.fileCurrent, 'r') as rf:
             reader = csv.reader(rf, delimiter = ',')
             with open (self.fileWin, 'a') as append:
                 writer = csv.writer(append)
                 for row in reader:
-                    writer.writerow([row[0], row[1]])
+                	if len(row) > 1:
+                		writer.writerow([row[0], row[1]])
     def addInLoss(self):
         with open(self.fileCurrent, 'r') as rf:
             reader = csv.reader(rf, delimiter = ',')
             with open (self.fileLoss, 'a') as append:
                 writer = csv.writer(append)
                 for row in reader:
-                    writer.writerow([row[0], row[1]])
+                	if len(row) > 1:
+                		writer.writerow([row[0], row[1]])
     def play(self):
         pass
 class TicTrain(Tic):
