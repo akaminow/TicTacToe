@@ -7,10 +7,10 @@ from tkinter import messagebox
 class Tic:
     def __init__(self):
             self.list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-            self.fileWin = 'tic_win.csv'
-            self.fileTie = 'tic_tie.csv'
-            self.fileCurrent = 'tic_current.csv'
-            self.fileLoss = 'tic_loss.csv'
+            self.fileWin = 'Data_Files/tic_win.csv'
+            self.fileTie = 'Data_Files/tic_tie.csv'
+            self.fileCurrent = 'Data_Files/tic_current.csv'
+            self.fileLoss = 'Data_Files/tic_loss.csv'
             self.computerNum = '0'
             self.personNum = '0'
             self.allNum = '0'
@@ -303,4 +303,4 @@ class TicPlay(Tic):
         elif self.list == []:
         	self.tk.update_idletasks()
         	self.tk.destroy()
-        	messagebox.showinfo("tie", "It's a tie")
+        	messagebox.showinfo("Tie", "It's a tie")
